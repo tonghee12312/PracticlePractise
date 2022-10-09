@@ -82,103 +82,42 @@
             app:layout_constraintTop_toTopOf="@+id/textViewName"
             tools:ignore="DuplicateSpeakableTextCheck" />
 
-        <RadioGroup
-            android:id="@+id/radioGroupAge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="@+id/textViewAge"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textViewAge"
-            app:layout_constraintTop_toTopOf="@+id/textViewAge">
-
-            <RadioButton
-                android:id="@+id/radioButtonUnderAge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/below_26" />
-
-            <RadioButton
-                android:id="@+id/radioButtonAboveAge"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="@string/_26_and_above" />
-        </RadioGroup>
-
-        <Spinner
-            android:id="@+id/spinnertaxIncome"
-            android:layout_width="176dp"
-            android:layout_height="48dp"
-            android:layout_marginEnd="60dp"
-            android:entries="@array/TaxableIncome"
-            app:layout_constraintBottom_toBottomOf="@+id/textViewTaxIncome"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textViewTaxIncome"
-            app:layout_constraintTop_toTopOf="@+id/textViewTaxIncome" />
-
-        <TextView
-            android:id="@+id/textViewYear"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:text="@string/year"
-            app:layout_constraintEnd_toStartOf="@+id/space"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewTaxIncome" />
-
-        <RadioGroup
-            android:id="@+id/radioGroupYear"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="@+id/textViewYear"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textViewYear"
-            app:layout_constraintTop_toTopOf="@+id/textViewYear">
-
-            <RadioButton
-                android:id="@+id/radioButtonYear2015"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/_2015" />
-
-            <RadioButton
-                android:id="@+id/radioButtonyear2016"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/_2016" />
-        </RadioGroup>
-
         <Button
             android:id="@+id/buttonCalculate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
             android:text="@string/calculate"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroupYear" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewResultShow"
+            app:layout_constraintVertical_bias="0.504" />
 
         <Button
             android:id="@+id/buttonphonecall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/call_phone"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonCalculate"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.68"
+            app:layout_constraintHorizontal_bias="0.448"
             app:layout_constraintStart_toEndOf="@+id/buttonCalculate"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroupYear" />
+            app:layout_constraintTop_toTopOf="@+id/buttonCalculate"
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/buttonWebsite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/hasil_gov"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonCalculate"
             app:layout_constraintEnd_toStartOf="@+id/buttonCalculate"
+            app:layout_constraintHorizontal_bias="0.344"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroupYear" />
+            app:layout_constraintTop_toTopOf="@+id/buttonCalculate"
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/buttonReset"
@@ -194,22 +133,49 @@
             android:id="@+id/textViewResult"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
             android:text="@string/result"
-            app:layout_constraintBottom_toTopOf="@+id/buttonWebsite"
             app:layout_constraintEnd_toStartOf="@+id/space"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewYear" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewTaxIncome" />
 
         <TextView
             android:id="@+id/textViewResultShow"
-            android:layout_width="143dp"
-            android:layout_height="24dp"
+            android:layout_width="223dp"
+            android:layout_height="227dp"
             android:hint="@string/resultShow"
             android:textColorHint="#757575"
             app:layout_constraintBottom_toBottomOf="@+id/textViewResult"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.702"
             app:layout_constraintStart_toEndOf="@+id/textViewResult"
-            app:layout_constraintTop_toTopOf="@+id/textViewResult" />
+            app:layout_constraintTop_toTopOf="@+id/textViewResult"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/editTextIncome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/rm"
+            android:inputType="numberDecimal"
+            android:minHeight="48dp"
+            android:textColorHint="#757575"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewTaxIncome"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textViewTaxIncome"
+            app:layout_constraintTop_toTopOf="@+id/textViewTaxIncome"
+            android:importantForAutofill="no" />
+
+        <Spinner
+            android:id="@+id/spinnerAge"
+            android:layout_width="243dp"
+            android:layout_height="48dp"
+            android:entries="@array/age"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewAge"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textViewAge"
+            app:layout_constraintTop_toTopOf="@+id/textViewAge" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

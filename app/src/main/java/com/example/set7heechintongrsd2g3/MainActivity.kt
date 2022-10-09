@@ -1,6 +1,5 @@
 package com.example.set7heechintongrsd2g3
 
-import android.content.ClipData.newIntent
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -9,7 +8,7 @@ import android.os.Bundle
 import androidx.core.app.ActivityCompat
 
 import com.example.set7heechintongrsd2g3.databinding.ActivityMainBinding
-import java.util.jar.Manifest
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -27,23 +26,63 @@ class MainActivity : AppCompatActivity() {
         }
         binding.buttonCalculate.setOnClickListener{
             val name = binding.editTextName.toString()
-            val age = getAge()
-            val Year = getYear()
-            val income =binding.spinnertaxIncome.selectedItemPosition
+            val age = binding.spinnerAge.selectedItemPosition
+            val income =binding.editTextIncome.text.toString().toDoubleOrNull()
 
-            var rate15 =0
-            var rate16 =0
-
-            when(binding.spinnertaxIncome.selectedItemPosition){
-
-            }
-            if(name.isEmpty()){
+            if(name.isEmpty()) {
                 binding.editTextName.error = getString(R.string.noname)
                 return@setOnClickListener
             }
 
+            if(income == null) {
+                binding.editTextIncome.error = getString(R.string.rm)
+                return@setOnClickListener
+            }
 
+            var rate15 =0
+            var rate16 =0
+
+            when(income){
+                    in 0.0..5000.0 -> {
+                    }
+                    in 5001.0..20000.0 -> {
+                        rate15 = 1
+                        rate16 = 1
+                    }
+                    in 20001.0..35000.0 -> {
+                        rate15 = 6
+                        rate16 = 5
+                    }
+                    else -> {
+                        rate15 = 11
+                        rate16 = 10
+                    }
+                }
+            var incometax2015 = income * (rate15.toFloat()/100)
+            var incometax2016 = income * (rate16.toFloat()/100)
+            var incomeresult = String.format(getString(R.string.resultMessage), name)
+
+            if(age == 0){
+                incometax2015 -= 300
+                incometax2016 -= 300
+                incomeresult += getString(R.string.underage)
+            }
+            incomeresult += if(incometax2015 <= 0 || incometax2016 <= 0){
+                getString(R.string.notax)
+            }else{
+                String.format(getString(R.string.Showresult), rate15, rate16, incometax2015, incometax2016)
+            }
+
+            binding.textViewResultShow.text = incomeresult
         }
+
+
+
+
+
+
+
+
         binding.buttonphonecall.setOnClickListener {
             val phone = Intent(
                 Intent.ACTION_CALL,
@@ -63,31 +102,17 @@ class MainActivity : AppCompatActivity() {
 
     private fun reset() {
         binding.editTextName.text.clear()
-        binding.radioGroupAge.check(R.id.radioButtonUnderAge)
-        binding.spinnertaxIncome.setSelection(0)
-        binding.radioGroupYear.check(R.id.radioButtonYear2015)
+        binding.spinnerAge.setSelection(0)
+        binding.editTextIncome.text.clear()
     }
 
-    private fun getYear(): String {
-        return when(binding.radioGroupYear.checkedRadioButtonId){
-            R.id.radioButtonYear2015 -> getString(R.string._2015)
-            R.id.radioButtonyear2016 -> getString(R.string._2016)
-            else ->""
-        }
-
-    }
 
     private fun checkPermissions() {
         if(ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) !=PackageManager.PERMISSION_GRANTED){
         ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.CALL_PHONE), 101)
         }
         }
-    private fun getAge(): String {
-        return when(binding.radioGroupAge.checkedRadioButtonId) {
-            R.id.radioButtonUnderAge -> getString(R.string.aboveAge)
-            R.id.radioButtonAboveAge -> getString(R.string.belowAge)
-            else -> ""
-        }
-    }
 
 }
+
+
