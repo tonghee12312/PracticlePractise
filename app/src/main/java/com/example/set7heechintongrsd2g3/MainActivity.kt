@@ -29,6 +29,20 @@ class MainActivity : AppCompatActivity() {
             val name = binding.editTextName.toString()
             val age = getAge()
             val Year = getYear()
+            val income =binding.spinnertaxIncome.selectedItemPosition
+
+            var rate15 =0
+            var rate16 =0
+
+            when(binding.spinnertaxIncome.selectedItemPosition){
+
+            }
+            if(name.isEmpty()){
+                binding.editTextName.error = getString(R.string.noname)
+                return@setOnClickListener
+            }
+
+
         }
         binding.buttonphonecall.setOnClickListener {
             val phone = Intent(

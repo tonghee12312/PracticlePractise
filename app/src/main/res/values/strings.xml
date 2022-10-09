@@ -22,4 +22,5 @@
         <item name="35001 and above">35001 and above</item>
     </string-array>
 
+    <string name="noname">Please fill in your name </string>
 </resources>
