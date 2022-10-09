@@ -23,4 +23,6 @@
     </string-array>
 
     <string name="noname">Please fill in your name </string>
+    <string name="result">Result</string>
+    <string name="resultShow">Result will show here</string>
 </resources>
