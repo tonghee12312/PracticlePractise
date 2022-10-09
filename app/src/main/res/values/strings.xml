@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Set7HeeChinTongRSD2G3</string>
+    <string name="textViewTittle">mobile income tax calculator for taxpayers</string>
+    <string name="name">Name</string>
+    <string name="age">Age</string>
+    <string name="incomeTax">Tax(Income)(RM)</string>
+    <string name="below_26">Below 26</string>
+    <string name="_26_and_above">26 and above</string>
+    <string name="year">Year</string>
+    <string name="_2015">2015</string>
+    <string name="_2016">2016</string>
+    <string name="calculate">Calculate</string>
+
+    <string-array name="TaxableIncome">
+        <string name="0 to 5000">0 to 5000</string>
+        <string name="5000 to 20000">5000 to 20000</string>
+        <string name="20001 to 35000">20001 to 35000</string>
+        <string name="35001 and above">35001 and above</string>
+    </string-array>
+
+</resources>
