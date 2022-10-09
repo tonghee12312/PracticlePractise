@@ -13,7 +13,8 @@
     <string name="call_phone">Call phone</string>
     <string name="hasil_gov">hasil.gov</string>
     <string name="reset">Reset</string>
-
+    <string name="aboveAge">You are above 26</string>
+    <string name="belowAge">You are below 26</string>
     <string-array name="TaxableIncome">
         <item name="0 to 5000">0 to 5000</item>
         <item name="5000 to 20000">5000 to 20000</item>
